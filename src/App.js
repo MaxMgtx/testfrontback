@@ -1,9 +1,17 @@
+import {Stack} from '@mui/material';
+import { Container } from '@mui/system';
+import MenuBar from './Composants/MenuBar/MenuBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world!</h1>
-    </div>
+    <Stack>
+      <MenuBar />
+      <Container maxWidth="md">
+        <p>Hello</p>
+      </Container>
+      
+    </Stack>
   );
 }
 
