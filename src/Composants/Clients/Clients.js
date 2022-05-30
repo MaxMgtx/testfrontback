@@ -1,6 +1,7 @@
 import { Alert, Card, CardContent, CircularProgress, Fab, Grid, Stack, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import useAxios from 'axios-hooks';
+import { Link } from "react-router-dom";
 
 const Clients = () => {
     const [{data, loading, error}] = useAxios(
@@ -16,11 +17,12 @@ const Clients = () => {
                 <>
                     <Grid container spacing={2}>
                         {data.map((client) => <ClientIndiv indiv={client}/> )}
-                        
                     </Grid>
-                    <Fab color='primary' aria-label='add'>
-                        <AddIcon/>
-                    </Fab>
+                    <Link to="/clients/new">
+                        <Fab color='primary' aria-label='add'>
+                            <AddIcon/>
+                        </Fab>
+                    </Link>    
                 </>
             )} 
         </Stack>
