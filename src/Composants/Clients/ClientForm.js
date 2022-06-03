@@ -12,11 +12,7 @@ const ClientForm = () => {
         axios.post("http://localhost:8080/api/v1/clients", 
         namejson,
         {headers: {"Content-Type": "application/json"}}).then((reponse)=>{
-            console.log(reponse.data);
-            console.log(reponse.status);
-            console.log(reponse.format);
         })
-        console.log(namejson);
         
     }
 
