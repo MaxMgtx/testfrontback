@@ -36,7 +36,7 @@ const ClientIndiv = ({indiv}) => {
             <Card>
             <CardContent>
                 <Typography variant="h5" component="div">
-                {indiv.name}
+                {indiv.firstName}
                 </Typography>
             </CardContent>
             </Card>
