@@ -8,11 +8,9 @@ const ClientForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let namejson = JSON.stringify(name);
         axios.post("http://localhost:8080/api/v1/clients", 
-        namejson,
-        {headers: {"Content-Type": "application/json"}}).then((reponse)=>{
-        })
+        name,
+        {headers: {"Content-Type": "application/json"}})
         
     }
 
