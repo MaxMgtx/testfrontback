@@ -6,3 +6,7 @@
 .linkMenu{
     text-decoration: none;
 }
+
+.MuiButtonBase-root {
+    color: red;
+}

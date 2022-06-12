@@ -1,21 +1,21 @@
 import { Button, FormControl, FormHelperText, Input, InputLabel, Stack } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
-import './clientform.css';
+import './customerform.css';
 
-const ClientForm = () => { 
+const CustomerForm = () => { 
 
-    const [client, setClient] = useState();
+    const [customer, setCustomer] = useState();
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setClient(values => ({...values, [name]: value}))
+        setCustomer(values => ({...values, [name]: value}))
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/api/v1/customers", client,
+        axios.post("http://localhost:8080/api/v1/customers", customer,
         {headers: {"Content-Type": "application/json"}})
         .then(function (response) {
             if(response.status ===201){
@@ -66,4 +66,4 @@ const ClientForm = () => {
 
 }
 
-export default ClientForm;
+export default CustomerForm;

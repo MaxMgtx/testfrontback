@@ -33,8 +33,8 @@ const PurchaseIndiv = ({indiv}) => {
             <Card>
                 <CardContent>
                     <Typography variant="h5" component="div" key={indiv.id}>
-                    Numéro de commande : {indiv.id}{" "}    
-                    Somme totale : {indiv.price}{" "}
+                    Purchase number : {indiv.id}{" "}    
+                    Total amount : {indiv.price}{" "}
                     Date : {indiv.date}
                     </Typography>
                 </CardContent>

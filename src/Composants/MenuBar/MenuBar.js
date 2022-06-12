@@ -58,11 +58,15 @@ const MenuBar = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/" className="link">Follow-up of orders and sales</Link>
             </Typography>
-            {isAuthenticated ?(
-                <Button color="inherit" onClick={()=>logout()}>Log out</Button>
-            ) : (
-                <Button color="inherit" onClick={()=>loginWithRedirect()}>Login</Button>
+
+            { isAuthenticated ? (
+                <Button variant="contained" onClick={()=>logout()}>Log Out</Button>
+                ) : (
+                <Button variant="contained" onClick={()=>loginWithRedirect()}>Log In</Button>
             )}
+            
+                
+
             </Toolbar>
         </AppBar>
         </Box>

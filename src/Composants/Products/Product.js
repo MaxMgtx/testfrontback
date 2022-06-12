@@ -17,7 +17,6 @@ const Product = () => {
         <div>
             <h2>Products</h2>
             <Stack spacing={2}>
-                <h2>Clients</h2>
                 {loading && <CircularProgress/>}
                 {error && <Alert severity="error">Error somewhere!</Alert>}
                 {data && (

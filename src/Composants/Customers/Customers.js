@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
-const Clients = () => {
+const Customers = () => {
     const [{data, loading, error}] = useAxios(
         "http://localhost:8080/api/v1/customers"
 
@@ -13,15 +13,15 @@ const Clients = () => {
 
     return(
         <Stack spacing={2}>
-            <h2>Clients</h2>
+            <h2>Customers</h2>
             {loading && <CircularProgress/>}
             {error && <Alert severity="error">Error somewhere!</Alert>}
             {data && (
                 <>
                     <Grid container spacing={2}>
-                        {data.map((client) => <ClientIndiv indiv={client}/> )}
+                        {data.map((customer) => <IndivCustomer indiv={customer}/> )}
                     </Grid>
-                    <Link to="/clients/new">
+                    <Link to="/customers/new">
                         <Fab color='primary' aria-label='add'>
                             <AddIcon/>
                         </Fab>
@@ -32,11 +32,9 @@ const Clients = () => {
     )
 };
 
-const ClientIndiv = ({indiv}) => {
+const IndivCustomer = ({indiv}) => {
 
-    const [num, setNum] = useState();
     
-    console.log(indiv.purchaseOrder[0]);
     return(
         <Grid item sm={6} md={4} key={indiv.id}>
             <Card>
@@ -61,4 +59,4 @@ const ClientIndiv = ({indiv}) => {
 
 }; 
 
-export default Clients;
+export default Customers;
