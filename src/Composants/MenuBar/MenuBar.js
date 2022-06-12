@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './menuBar.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const MenuBar = () => {
 
@@ -16,6 +17,8 @@ const MenuBar = () => {
     const handleMenuClose = () => {
         setAnchorEl(null)
     }
+
+    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
     
 
     return(
@@ -55,7 +58,11 @@ const MenuBar = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/" className="link">Follow-up of orders and sales</Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+            {isAuthenticated ?(
+                <Button color="inherit" onClick={()=>logout()}>Log out</Button>
+            ) : (
+                <Button color="inherit" onClick={()=>loginWithRedirect()}>Login</Button>
+            )}
             </Toolbar>
         </AppBar>
         </Box>

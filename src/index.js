@@ -5,15 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CssBaseline } from '@mui/material';
 import { BrowserRouter } from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <CssBaseline />
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+
+  <Auth0Provider
+    domain="projint-maxmgtx.eu.auth0.com"
+    clientId="yycwxvQgoNxJt1hC0WKZWsFTdheHBgVq"
+    redirectUri={window.location.origin}
+  >
+    <BrowserRouter>
+      <React.StrictMode>
+        <CssBaseline />
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
