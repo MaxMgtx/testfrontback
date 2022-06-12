@@ -1,28 +1,64 @@
-import { Button, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
+import { Button, FormControl, FormHelperText, Input, InputLabel, Stack } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
+import './clientform.css';
 
 const ClientForm = () => { 
 
-    const [name, setName] = useState();
+    const [client, setClient] = useState();
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setClient(values => ({...values, [name]: value}))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/api/v1/clients", 
-        name,
+        axios.post("http://localhost:8080/api/v1/customers", client,
         {headers: {"Content-Type": "application/json"}})
+        .then(function (response) {
+            if(response.status ===201){
+                alert("Customer registered");
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
         
     }
 
     return(
         <div>
-            <h2>Nouveau client</h2>
-            <FormControl onSubmit={handleSubmit} >
-                <InputLabel htmlFor="my-input">Prénom</InputLabel>
-                <Input id="my-input" aria-describedby="my-helper-text" onChange={(e)=> setName(e.target.value)}/>
-                <FormHelperText id="my-helper-text">Entrez votre prénom</FormHelperText><br />
-                <Button size="small" onClick={handleSubmit} >Soumettre</Button>
-            </FormControl>
+            <h2>New customer</h2>
+            <Stack spacing={2} onSubmit={handleSubmit} >
+                <FormControl>
+                    <InputLabel htmlFor="firstname">Firstname</InputLabel>
+                    <Input id="firstname" aria-describedby="firstname-text" name="firstName" required onChange={handleChange}/>
+                    <FormHelperText id="firstname-text">Enter your firstname</FormHelperText>
+                </FormControl>
+                <FormControl>
+                    <InputLabel htmlFor="lastname">Lastname</InputLabel>
+                    <Input id="lastname" aria-describedby="lastname-text" name="lastName" required onChange={handleChange}/>
+                    <FormHelperText id="lastname-text">Enter your lastname</FormHelperText>
+                </FormControl>
+                <FormControl>
+                    <InputLabel htmlFor="phone">Phone</InputLabel>
+                    <Input id="phone" aria-describedby="phone-text" name="phone" required onChange={handleChange}/>
+                    <FormHelperText id="phone-text">Enter your phone number</FormHelperText>
+                </FormControl>
+                <FormControl>
+                    <InputLabel htmlFor="mail">Mail address</InputLabel>
+                    <Input id="mail" aria-describedby="mail-text" name="mail" required onChange={handleChange}/>
+                    <FormHelperText id="mail-text">Enter your mail address</FormHelperText>
+                </FormControl>
+                <FormControl>
+                    <InputLabel htmlFor="address">Address</InputLabel>
+                    <Input id="address" aria-describedby="address-text" name="address" required onChange={handleChange}/>
+                    <FormHelperText id="address-text">Enter your full address</FormHelperText>
+                </FormControl>            
+                <Button size="small" onClick={handleSubmit}>Submit</Button>
+            </Stack>
         </div>
     )
 
