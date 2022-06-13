@@ -1,4 +1,5 @@
-import { Stack } from '@mui/material';
+import { Alert, Stack } from '@mui/material';
+import Axios from "axios";
 import { Container } from '@mui/system';
 import { Route, Routes } from 'react-router-dom';
 import MenuBar from './Composants/MenuBar/MenuBar';
@@ -7,26 +8,30 @@ import Product from './Composants/Products/Product';
 import Invoices from './Composants/Invoices/Invoices';
 import Customers from './Composants/Customers/Customers';
 import CustomerForm from './Composants/Customers/CustomerForm';
+import { configure } from 'axios-hooks';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function App() {
 
-  /*
-  const {isAuthenticated, getAccessTokenSilently} = useAuth0();
+  
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   if(isAuthenticated){
     getAccessTokenSilently().then((token) => {
-      const headers = {autorization : `Bearer ${token}`};
       const axios = Axios.create({
-        baseURL : "http://localhost:8080/api/v1",
-        headers : headers,
+        baseURL: "http://localhost:8080/api/v1",
+        headers: { authorization: `Bearer ${token}` },
       })
-      const defaultOptions = {useCache : false,}
+      const defaultOptions = {
+        useCache : false,
+      };
       configure({
-        axios, defaultOptions
+        axios, 
+        defaultOptions
       });
     }
-    )*/
+    );
     return(
       <Stack>
       <MenuBar />
@@ -42,7 +47,7 @@ function App() {
       
     </Stack>
     );
-  /*
+  
   }else{
     return (
       <div>
@@ -52,7 +57,7 @@ function App() {
         </Alert>
       </div>
     );
-  }*/
+  }
 }
 
 export default App;

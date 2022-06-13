@@ -13,6 +13,7 @@ root.render(
     domain="projint-maxmgtx.eu.auth0.com"
     clientId="16r6Fgg3hv8BJIG7odemnxIanELTPU41"
     redirectUri={window.location.origin}
+    audience="http://localhost:8080/api/v1"
   >
     <BrowserRouter>
       <React.StrictMode>
