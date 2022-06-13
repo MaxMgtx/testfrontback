@@ -11,7 +11,7 @@ import { useState } from "react";
 const Product = () => { 
 
     const [{data, loading, error}] = useAxios(
-        "http://localhost:8080/api/v1/products"
+        "/products"
     )
     return(
         <div>
@@ -21,7 +21,7 @@ const Product = () => {
                 {error && <Alert severity="error">Error somewhere!</Alert>}
                 {data && (
                     <Grid container spacing={2}>
-                        {data.map((product) => <UniqueProduct p={product}/> )}
+                        {data.map((product) => <UniqueProduct p={product} key={product.id}/> )}
                     </Grid>   
                 )} 
             </Stack>
@@ -45,7 +45,7 @@ const UniqueProduct = ({p}) => {
 
     
     return(
-        <Grid item sm={6} md={4} key={p.id}>
+        <Grid item sm={6} md={4}>
             <Card>
                 <CardContent>
                     <Typography variant="h5" component="div">

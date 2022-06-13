@@ -1,11 +1,14 @@
-import { Button, FormControl, FormHelperText, Input, InputLabel, Stack } from "@mui/material";
-import axios from "axios";
+import { Alert, Button, FormControl, FormHelperText, Input, InputLabel, Stack } from "@mui/material";
+import useAxios from "axios-hooks";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import './customerform.css';
 
 const CustomerForm = () => { 
 
     const [customer, setCustomer] = useState();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -15,18 +18,20 @@ const CustomerForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/api/v1/customers", customer,
-        {headers: {"Content-Type": "application/json"}})
-        .then(function (response) {
-            if(response.status ===201){
-                alert("Customer registered");
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-        
+        postData({data: customer}).then(()=>{
+            navigate("/customers");
+        })
     }
+
+    const [{data, loading, error}, postData] = useAxios(
+        {
+            url: "/customers",
+            method: "POST",
+        }, 
+        {
+            manual: true
+        }
+    )
 
     return(
         <div>
@@ -58,6 +63,7 @@ const CustomerForm = () => {
                     <FormHelperText id="address-text">Enter your full address</FormHelperText>
                 </FormControl>            
                 <Button size="small" onClick={handleSubmit}>Submit</Button>
+                {error && <Alert severity="error">Error has occured</Alert>}
             </Stack>
         </div>
     )

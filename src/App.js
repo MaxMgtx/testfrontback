@@ -11,10 +11,8 @@ import CustomerForm from './Composants/Customers/CustomerForm';
 import { configure } from 'axios-hooks';
 import { useAuth0 } from '@auth0/auth0-react';
 
-
 function App() {
 
-  
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
 
   if(isAuthenticated){

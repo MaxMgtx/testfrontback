@@ -4,7 +4,7 @@ import useAxios from "axios-hooks";
 const Purchases = () => { 
 
     const [{data, loading, error}] = useAxios(
-        "http://localhost:8080/api/v1/purchases"
+        "/purchases"
     );
 
     return(
@@ -16,7 +16,7 @@ const Purchases = () => {
                 {data && (
                     <>
                         <Grid container spacing={2}>
-                            {data.map((purch) => <PurchaseIndiv indiv={purch}/> )}
+                            {data.map((purch) => <PurchaseIndiv indiv={purch}  key={purch.id}/> )}
                         </Grid>   
                     </>
                 )} 
@@ -32,7 +32,7 @@ const PurchaseIndiv = ({indiv}) => {
         <Grid item sm={6} md={4}>
             <Card>
                 <CardContent>
-                    <Typography variant="h5" component="div" key={indiv.id}>
+                    <Typography variant="h5" component="div">
                     Purchase number : {indiv.id}{" "}    
                     Total amount : {indiv.price}{" "}
                     Date : {indiv.date}

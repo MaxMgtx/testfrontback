@@ -2,13 +2,10 @@ import { Alert, Button, Card, CardContent, CircularProgress, Fab, Grid, Stack, T
 import AddIcon from '@mui/icons-material/Add';
 import useAxios from 'axios-hooks';
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
 
 const Customers = () => {
     const [{data, loading, error}] = useAxios(
-        "http://localhost:8080/api/v1/customers"
-
+        "/customers",
     );
 
     return(
@@ -19,7 +16,7 @@ const Customers = () => {
             {data && (
                 <>
                     <Grid container spacing={2}>
-                        {data.map((customer) => <IndivCustomer indiv={customer}/> )}
+                        {data.map((customer) => <IndivCustomer indiv={customer}  key={customer.id}/> )}
                     </Grid>
                     <Link to="/customers/new">
                         <Fab color='primary' aria-label='add'>
@@ -36,7 +33,7 @@ const IndivCustomer = ({indiv}) => {
 
     
     return(
-        <Grid item sm={6} md={4} key={indiv.id}>
+        <Grid item sm={6} md={4}>
             <Card>
             <CardContent>
                 <Typography variant="h5" component="div">
