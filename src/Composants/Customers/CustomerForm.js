@@ -3,7 +3,7 @@ import useAxios from "axios-hooks";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import './customerform.css';
+import '../../Composants/form.css';
 
 const CustomerForm = () => { 
 
@@ -61,15 +61,13 @@ const CustomerForm = () => {
                     <InputLabel htmlFor="address">Address</InputLabel>
                     <Input id="address" aria-describedby="address-text" name="address" required onChange={handleChange}/>
                     <FormHelperText id="address-text">Enter your full address</FormHelperText>
-                </FormControl>            
+                </FormControl>
+                            
                 <Button size="small" onClick={handleSubmit}>Submit</Button>
                 {error && <Alert severity="error">Error has occured</Alert>}
             </Stack>
         </div>
     )
-
-
-
-}
+};
 
 export default CustomerForm;

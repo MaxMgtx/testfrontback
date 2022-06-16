@@ -53,6 +53,9 @@ const MenuBar = () => {
                 <MenuItem onClick={handleMenuClose}>
                     <Link to="/invoices" className="linkMenu">Invoices</Link>
                 </MenuItem>
+                <MenuItem onClick={handleMenuClose}>
+                    <Link to="/deliveries" className="linkMenu">Deliveries</Link>
+                </MenuItem>
             </Menu>
             
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

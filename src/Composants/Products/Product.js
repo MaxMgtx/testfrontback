@@ -1,9 +1,10 @@
-import { Alert, Card, CardContent, CircularProgress, Grid, Stack, Typography } from "@mui/material";
+import { Alert, Card, CardContent, CircularProgress, Fab, Grid, Stack, Typography } from "@mui/material";
 import useAxios from "axios-hooks";
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import DoneIcon from '@mui/icons-material/Done';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -20,9 +21,18 @@ const Product = () => {
                 {loading && <CircularProgress/>}
                 {error && <Alert severity="error">Error somewhere!</Alert>}
                 {data && (
-                    <Grid container spacing={2}>
-                        {data.map((product) => <UniqueProduct p={product} key={product.id}/> )}
-                    </Grid>   
+                    <div>
+                        <Grid container spacing={2}>
+                            {data.map((product) => <UniqueProduct p={product} key={product.id}/> )}
+                        </Grid><br />
+                        <Link to="/products/new">
+                            <Fab color='primary' aria-label='add'>
+                                <AddIcon/>
+                            </Fab>
+                        </Link> 
+
+                    </div>
+                       
                 )} 
             </Stack>
         </div>

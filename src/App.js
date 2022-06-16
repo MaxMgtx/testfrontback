@@ -10,6 +10,11 @@ import Customers from './Composants/Customers/Customers';
 import CustomerForm from './Composants/Customers/CustomerForm';
 import { configure } from 'axios-hooks';
 import { useAuth0 } from '@auth0/auth0-react';
+import ProductForm from './Composants/Products/ProductFrom';
+import PurchasesForm from './Composants/Purchases/PurchasesForm';
+import InvoiceForm from './Composants/Invoices/InvoiceForm';
+import Delivery from './Composants/Delivery/Delivery';
+import DeliveryForm from './Composants/Delivery/DeliveryForm';
 
 function App() {
 
@@ -38,8 +43,13 @@ function App() {
           <Route path="/customers" element={<Customers/>} />
           <Route path="/customers/new" element={<CustomerForm/>}/>
           <Route path="/purchases" element={<Purchases />}/>
+          <Route path="/purchases/new" element={<PurchasesForm/>}/>
           <Route path="/products" element={<Product/>}/>
+          <Route path="/products/new" element={<ProductForm/>}/>
           <Route path="/invoices" element={<Invoices/>}/>
+          <Route path="/invoices/new" element={<InvoiceForm/>}/>
+          <Route path="/deliveries" element={<Delivery/>}/>
+          <Route path="/deliveries/new" element={<DeliveryForm/>}/>
         </Routes> 
       </Container>
       

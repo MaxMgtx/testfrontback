@@ -45,10 +45,7 @@ const IndivCustomer = ({indiv}) => {
                 <Typography variant="h5" component="div">
                 {indiv.purchaseOrder}
                 </Typography>
-            </CardContent>
-            <Button  variant="contained">
-                View purchases
-            </Button> 
+            </CardContent> 
             </Card>
         </Grid>
     )

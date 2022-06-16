@@ -3,24 +3,24 @@ import useAxios from "axios-hooks";
 import { Link } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 
-const Purchases = () => { 
+const Delivery = () => { 
 
     const [{data, loading, error}] = useAxios(
-        "/purchases"
+        "/deliveryNote"
     );
 
     return(
         <div>
-            <h3>Purchases </h3>
+            <h3>Deliveries Notes </h3>
             <Stack spacing={2}>
                 {loading && <CircularProgress/>}
                 {error && <Alert severity="error">Error somewhere!</Alert>}
                 {data && (
                     <>
                         <Grid container spacing={2}>
-                            {data.map((purch) => <PurchaseIndiv indiv={purch}  key={purch.id}/> )}
+                            {data.map((delivery) => <DeliveryIndiv indiv={delivery}  key={delivery.id}/> )}
                         </Grid>
-                        <Link to="/purchases/new">
+                        <Link to="/deliveries/new">
                             <Fab color='primary' aria-label='add'>
                                 <AddIcon/>
                             </Fab>
@@ -33,16 +33,16 @@ const Purchases = () => {
     )
 };
 
-const PurchaseIndiv = ({indiv}) => {
+const DeliveryIndiv = ({indiv}) => {
         
     return(
         <Grid item sm={6} md={4}>
             <Card>
                 <CardContent>
                     <Typography variant="h5" component="div">
-                    Purchase number : {indiv.id}{" "}    
-                    Total amount : {indiv.price}{" "}
-                    Date : {indiv.date}
+                    Number of delivery : {indiv.id}{" "}    
+                    Date : {indiv.date}{" "}
+                    Total of products : {indiv.totalProduit}
                     </Typography>
                 </CardContent>
             </Card>
@@ -54,4 +54,4 @@ const PurchaseIndiv = ({indiv}) => {
 }; 
 
 
-export default Purchases;
+export default Delivery;
