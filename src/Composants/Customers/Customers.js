@@ -14,7 +14,7 @@ const Customers = () => {
     const [{data, loading, error}] = useAxios({
         url: "/customers",
         params: {
-            page: currentPage,
+            page: currentPage -1,
             size:6
         }
     });
@@ -27,14 +27,14 @@ const Customers = () => {
             {data && (
                 <>
                     <Grid container spacing={2}>
-                        {data.map((customer) => <IndivCustomer indiv={customer}  key={customer.id}/> )}
+                        {data.content.map((customer) => <IndivCustomer indiv={customer}  key={customer.id}/> )}
                     </Grid>
                     <Link to="/customerform">
                         <Fab color='primary' aria-label='add'>
                             <AddIcon/>
                         </Fab>
                     </Link>
-                    <Pagination count={3} color="primary" onChange={handlePageChange}/>    
+                    <Pagination count={data.totalPages} pages={currentPage} color="primary" onChange={handlePageChange}/>    
                 </>
             )} 
         </Stack>
