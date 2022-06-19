@@ -20,7 +20,7 @@ const Delivery = () => {
                         <Grid container spacing={2}>
                             {data.map((delivery) => <DeliveryIndiv indiv={delivery}  key={delivery.id}/> )}
                         </Grid>
-                        <Link to="/deliveries/new">
+                        <Link to="/deliveriesform">
                             <Fab color='primary' aria-label='add'>
                                 <AddIcon/>
                             </Fab>

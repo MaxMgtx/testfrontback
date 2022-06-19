@@ -25,7 +25,7 @@ const Product = () => {
                         <Grid container spacing={2}>
                             {data.map((product) => <UniqueProduct p={product} key={product.id}/> )}
                         </Grid><br />
-                        <Link to="/products/new">
+                        <Link to="/productsform">
                             <Fab color='primary' aria-label='add'>
                                 <AddIcon/>
                             </Fab>

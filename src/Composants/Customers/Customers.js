@@ -1,13 +1,24 @@
-import { Alert, Button, Card, CardContent, CircularProgress, Fab, Grid, Stack, Typography } from "@mui/material";
+import { Alert, Card, CardContent, CircularProgress, Fab, Grid, Pagination, Stack, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import useAxios from 'axios-hooks';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Customers = () => {
-    const [{data, loading, error}] = useAxios(
-        "/customers",
-    );
-
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const handlePageChange = ( event, newPage) => {
+        setCurrentPage(newPage);
+    }
+    
+    const [{data, loading, error}] = useAxios({
+        url: "/customers",
+        params: {
+            page: currentPage,
+            size:6
+        }
+    });
+    
     return(
         <Stack spacing={2}>
             <h2>Customers</h2>
@@ -18,11 +29,12 @@ const Customers = () => {
                     <Grid container spacing={2}>
                         {data.map((customer) => <IndivCustomer indiv={customer}  key={customer.id}/> )}
                     </Grid>
-                    <Link to="/customers/new">
+                    <Link to="/customerform">
                         <Fab color='primary' aria-label='add'>
                             <AddIcon/>
                         </Fab>
-                    </Link>    
+                    </Link>
+                    <Pagination count={3} color="primary" onChange={handlePageChange}/>    
                 </>
             )} 
         </Stack>
@@ -34,16 +46,22 @@ const IndivCustomer = ({indiv}) => {
     
     return(
         <Grid item sm={6} md={4}>
-            <Card>
-            <CardContent>
+            <Card sx={{ boxShadow: 5, m:2 }}>
+            <CardContent >
                 <Typography variant="h5" component="div">
                 {indiv.firstName}
                 </Typography>
                 <Typography variant="h5" component="div">
                 {indiv.lastName}
+                </Typography><br />
+                <Typography variant="body2" sx={{py : 1}} component="div">
+                {indiv.phone}
                 </Typography>
-                <Typography variant="h5" component="div">
-                {indiv.purchaseOrder}
+                <Typography variant="body2" sx={{py : 1}} component="div">
+                {indiv.mail}
+                </Typography>
+                <Typography variant="body2" sx={{py : 1}} component="div">
+                {indiv.address}
                 </Typography>
             </CardContent> 
             </Card>

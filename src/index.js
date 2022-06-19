@@ -14,6 +14,7 @@ root.render(
     clientId="16r6Fgg3hv8BJIG7odemnxIanELTPU41"
     redirectUri={window.location.origin}
     audience="http://localhost:8080/api/v1"
+    scope="read:customer read:app "
   >
     <BrowserRouter>
       <React.StrictMode>

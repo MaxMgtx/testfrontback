@@ -20,7 +20,7 @@ const Purchases = () => {
                         <Grid container spacing={2}>
                             {data.map((purch) => <PurchaseIndiv indiv={purch}  key={purch.id}/> )}
                         </Grid>
-                        <Link to="/purchases/new">
+                        <Link to="/purchasesform">
                             <Fab color='primary' aria-label='add'>
                                 <AddIcon/>
                             </Fab>
@@ -34,7 +34,7 @@ const Purchases = () => {
 };
 
 const PurchaseIndiv = ({indiv}) => {
-        
+
     return(
         <Grid item sm={6} md={4}>
             <Card>
@@ -48,9 +48,6 @@ const PurchaseIndiv = ({indiv}) => {
             </Card>
         </Grid>
     )
-    
-    
-
 }; 
 
 

@@ -20,7 +20,7 @@ const Invoices = () => {
                         <Grid container spacing={2}>
                             {data.map((invoice) => <InvoiceIndiv indiv={invoice}  key={invoice.id}/> )}
                         </Grid>
-                        <Link to="/invoices/new">
+                        <Link to="/invoicesform">
                             <Fab color='primary' aria-label='add'>
                                 <AddIcon/>
                             </Fab>

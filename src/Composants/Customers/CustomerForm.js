@@ -1,7 +1,7 @@
-import { Alert, Button, FormControl, FormHelperText, Input, InputLabel, Stack } from "@mui/material";
+import { Alert, Button, FormControl, FormHelperText, Input, InputLabel, Stack} from "@mui/material";
 import useAxios from "axios-hooks";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 import '../../Composants/form.css';
 
@@ -9,20 +9,17 @@ const CustomerForm = () => {
 
     const [customer, setCustomer] = useState();
     const navigate = useNavigate();
-
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setCustomer(values => ({...values, [name]: value}))
     }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         postData({data: customer}).then(()=>{
             navigate("/customers");
         })
     }
-
     const [{data, loading, error}, postData] = useAxios(
         {
             url: "/customers",
@@ -61,13 +58,13 @@ const CustomerForm = () => {
                     <InputLabel htmlFor="address">Address</InputLabel>
                     <Input id="address" aria-describedby="address-text" name="address" required onChange={handleChange}/>
                     <FormHelperText id="address-text">Enter your full address</FormHelperText>
-                </FormControl>
-                            
+                </FormControl>   
                 <Button size="small" onClick={handleSubmit}>Submit</Button>
                 {error && <Alert severity="error">Error has occured</Alert>}
             </Stack>
         </div>
     )
 };
+
 
 export default CustomerForm;

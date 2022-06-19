@@ -40,16 +40,16 @@ function App() {
       <MenuBar />
       <Container maxWidth="md">
         <Routes>
-          <Route path="/customers" element={<Customers/>} />
-          <Route path="/customers/new" element={<CustomerForm/>}/>
+          <Route path="/customers" element={<Customers/>}/>
+          <Route path="/customersform" element={<CustomerForm/>}/>
           <Route path="/purchases" element={<Purchases />}/>
-          <Route path="/purchases/new" element={<PurchasesForm/>}/>
+          <Route path="/purchasesform" element={<PurchasesForm/>}/>
           <Route path="/products" element={<Product/>}/>
-          <Route path="/products/new" element={<ProductForm/>}/>
+          <Route path="/productsform" element={<ProductForm/>}/>
           <Route path="/invoices" element={<Invoices/>}/>
-          <Route path="/invoices/new" element={<InvoiceForm/>}/>
+          <Route path="/invoicesform" element={<InvoiceForm/>}/>
           <Route path="/deliveries" element={<Delivery/>}/>
-          <Route path="/deliveries/new" element={<DeliveryForm/>}/>
+          <Route path="/deliveriesform" element={<DeliveryForm/>}/>
         </Routes> 
       </Container>
       
