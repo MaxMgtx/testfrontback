@@ -46,7 +46,7 @@ const InvoiceForm = () => {
                     <InputLabel htmlFor="date">Date</InputLabel>
                     <Input id="date" aria-describedby="date-text" name="date" required onChange={handleChange}/>
                     <FormHelperText id="date-text">Enter the date</FormHelperText>
-                </FormControl>           
+                </FormControl>          
                 <Button size="small" onClick={handleSubmit}>Submit</Button>
                 {error && <Alert severity="error">Error has occured</Alert>}
             </Stack>

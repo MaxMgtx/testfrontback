@@ -46,7 +46,12 @@ const DeliveryForm = () => {
                     <InputLabel htmlFor="totalProduit">Total of products</InputLabel>
                     <Input id="totalProduit" aria-describedby="totalProduit-text" name="totalProduit" required onChange={handleChange}/>
                     <FormHelperText id="totalProduit-text">Enter the total of products</FormHelperText>
-                </FormControl>           
+                </FormControl>    
+                <FormControl>
+                    <InputLabel htmlFor="deliveryAddress">Delivery address</InputLabel>
+                    <Input id="deliveryAddress" aria-describedby="deliveryAddress-text" name="deliveryAddress" required onChange={handleChange}/>
+                    <FormHelperText id="deliveryAddress-text">Enter the date</FormHelperText>
+                </FormControl>         
                 <Button size="small" onClick={handleSubmit}>Submit</Button>
                 {error && <Alert severity="error">Error has occured</Alert>}
             </Stack>

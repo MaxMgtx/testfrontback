@@ -1,4 +1,4 @@
-import { Alert, Stack } from '@mui/material';
+import { Alert, Box, Stack, Typography } from '@mui/material';
 import Axios from "axios";
 import { Container } from '@mui/system';
 import { Route, Routes } from 'react-router-dom';
@@ -52,7 +52,11 @@ function App() {
           <Route path="/deliveriesform" element={<DeliveryForm/>}/>
         </Routes> 
       </Container>
-      
+      <Box sx={{ width: '100%', maxWidth: 500, mx: "auto", mt : 5}}>
+        <Typography variant="h3" component="div" gutterBottom>
+          Welcome on the app
+        </Typography>
+      </Box>  
     </Stack>
     );
   

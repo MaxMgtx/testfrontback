@@ -63,6 +63,9 @@ const IndivCustomer = ({indiv}) => {
                 <Typography variant="body2" sx={{py : 1}} component="div">
                 {indiv.address}
                 </Typography>
+                <Typography variant="body2" sx={{py : 1}} component="div">
+                {indiv.id}
+                </Typography>
             </CardContent> 
             </Card>
         </Grid>

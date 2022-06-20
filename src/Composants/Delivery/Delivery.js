@@ -36,13 +36,20 @@ const Delivery = () => {
 const DeliveryIndiv = ({indiv}) => {
         
     return(
-        <Grid item sm={6} md={4}>
+        <Grid item sm={8} md={6}>
             <Card>
                 <CardContent>
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h6" component="div">
                     Number of delivery : {indiv.id}{" "}    
+                    </Typography>
+                    <Typography component="div">
                     Date : {indiv.date}{" "}
+                    </Typography>
+                    <Typography component="div">
                     Total of products : {indiv.totalProduit}
+                    </Typography>
+                    <Typography component="div">
+                    Delivery address : {indiv.deliveryAddress}
                     </Typography>
                 </CardContent>
             </Card>

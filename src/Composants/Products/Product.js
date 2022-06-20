@@ -1,9 +1,7 @@
 import { Alert, Card, CardContent, CircularProgress, Fab, Grid, Stack, Typography } from "@mui/material";
 import useAxios from "axios-hooks";
 import AddIcon from '@mui/icons-material/Add';
-import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
-import DoneIcon from '@mui/icons-material/Done';
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 
@@ -41,18 +39,6 @@ const Product = () => {
 };
 
 const UniqueProduct = ({p}) => {    
-
-    const [qty, setQty] = useState(0);
-    const changeQty=(num, name)=>{
-        setQty(qty + num);
-
-    }
-
-    const confirm = () => {
-
-        console.log(qty);
-    }
-
     
     return(
         <Grid item sm={6} md={4}>
@@ -62,14 +48,12 @@ const UniqueProduct = ({p}) => {
                     {p.name}
                     </Typography>
                     <Typography variant="h5" component="div">
-                    {p.price}{"€"}
-                    </Typography><br />
-                <AddIcon onClick={()=>changeQty(1, p.name)}/>
-                <HorizontalRuleIcon onClick={()=>changeQty(-1, p.name)}/>
-                <DoneIcon onClick={()=>confirm()}/>
+                    {p.price}{" €"}
+                    </Typography>
+                    <Typography variant="body2" component="div">
+                    {"Stock restant : "}{p.stock}
+                    </Typography>
                 </CardContent>
-                <Typography>Quantity : {qty}</Typography>
-            
             </Card>
         </Grid>
     )

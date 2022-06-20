@@ -8,7 +8,6 @@ const Invoices = () => {
     const [{data, loading, error}] = useAxios(
         "/invoices"
     );
-
     return(
         <div>
             <h3>Invoices </h3>
@@ -18,7 +17,7 @@ const Invoices = () => {
                 {data && (
                     <>
                         <Grid container spacing={2}>
-                            {data.map((invoice) => <InvoiceIndiv indiv={invoice}  key={invoice.id}/> )}
+                            {data.map((invoice) => <InvoiceIndiv indiv={invoice} key={invoice.id} /> )}
                         </Grid>
                         <Link to="/invoicesform">
                             <Fab color='primary' aria-label='add'>
@@ -39,9 +38,13 @@ const InvoiceIndiv = ({indiv}) => {
         <Grid item sm={6} md={4}>
             <Card>
                 <CardContent>
-                    <Typography variant="h5" component="div">
-                    Number of invoice : {indiv.id}{" "}    
-                    Date : {indiv.date}{" "}
+                    <Typography variant="h6" component="div">
+                    Number of invoice : {indiv.id}
+                    </Typography>
+                    <Typography component="div">  
+                    Date : {indiv.date}
+                    </Typography>
+                    <Typography component="div">
                     Total price : {indiv.price}
                     </Typography>
                 </CardContent>

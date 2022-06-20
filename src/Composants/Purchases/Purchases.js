@@ -39,9 +39,13 @@ const PurchaseIndiv = ({indiv}) => {
         <Grid item sm={6} md={4}>
             <Card>
                 <CardContent>
-                    <Typography variant="h5" component="div">
-                    Purchase number : {indiv.id}{" "}    
-                    Total amount : {indiv.price}{" "}
+                    <Typography variant="h6" component="div">
+                    Purchase number : {indiv.id}  
+                    </Typography>
+                    <Typography component="div">  
+                    Total amount : {indiv.price}{" €"}
+                    </Typography>
+                    <Typography component="div">
                     Date : {indiv.date}
                     </Typography>
                 </CardContent>
