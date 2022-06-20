@@ -51,12 +51,7 @@ function App() {
           <Route path="/deliveries" element={<Delivery/>}/>
           <Route path="/deliveriesform" element={<DeliveryForm/>}/>
         </Routes> 
-      </Container>
-      <Box sx={{ width: '100%', maxWidth: 500, mx: "auto", mt : 5}}>
-        <Typography variant="h3" component="div" gutterBottom>
-          Welcome on the app
-        </Typography>
-      </Box>  
+      </Container> 
     </Stack>
     );
   
